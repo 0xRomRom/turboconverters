@@ -1,0 +1,12 @@
+.adblock {
+  width: 10rem;
+  height: 30rem;
+  background-color: rgb(65, 105, 225);
+  margin-right: 10px;
+  border-radius: 0.2rem;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+}
