@@ -8,6 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(8, 11, 22);
+  font-family: "Open Sans";
+}
+
+* {
+  font-family: "Open Sans";
 }
 
 code {

@@ -1,9 +1,10 @@
 import NavBar from "./components/navbar/NavBar";
-
+import Converters from "./components/navbar/converters/Converters";
 function App() {
   return (
-    <div className="App">
+    <div>
       <NavBar />
+      <Converters />
     </div>
   );
 }
