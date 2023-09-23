@@ -1,0 +1,10 @@
+.uploadbox {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  background-color: rgb(65, 105, 225);
+  margin-top: 3rem;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}
