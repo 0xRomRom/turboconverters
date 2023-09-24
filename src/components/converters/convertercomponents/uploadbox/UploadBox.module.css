@@ -27,6 +27,7 @@
   color: whiote;
   border-radius: 0.2rem;
   cursor: pointer;
+  user-select: none;
 }
 
 .uploadbtn:active {
@@ -37,4 +38,5 @@
   position: relative;
   top: 1rem;
   color: white;
+  user-select: none;
 }
