@@ -19,14 +19,15 @@ const UploadBox = (props) => {
 
       props.isDragging(false);
 
+      console.log(acceptedFiles);
       acceptedFiles.forEach((file) => {
         const reader = new FileReader();
 
         reader.onabort = () => console.log("file reading was aborted");
         reader.onerror = () => console.log("file reading has failed");
-        reader.onload = () => {
+        reader.onload = (event) => {
           // Do whatever you want with the file contents
-          const binaryStr = reader.result;
+          const binaryStr = event.target.result;
           console.log(binaryStr);
         };
         reader.readAsArrayBuffer(file);
