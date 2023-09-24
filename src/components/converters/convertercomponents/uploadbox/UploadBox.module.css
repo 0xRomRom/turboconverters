@@ -52,7 +52,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.719);
-  z-index: 100;
+  z-index: 1000 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,4 +68,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.filedrop {
+  pointer-events: none;
 }

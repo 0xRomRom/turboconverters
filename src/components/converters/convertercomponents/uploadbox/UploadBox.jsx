@@ -34,8 +34,12 @@ const UploadBox = (props) => {
   return (
     <>
       {props.dragging && (
-        <div className={stl.largedropbox} {...getRootProps()}>
-          <span>Drop Files</span>
+        <div
+          className={stl.largedropbox}
+          {...getRootProps()}
+          onDragLeave={handleDragLeave}
+        >
+          <span className={stl.filedrop}>Drop Files</span>
         </div>
       )}
 
