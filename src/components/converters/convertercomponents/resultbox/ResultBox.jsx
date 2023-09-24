@@ -1,151 +1,39 @@
 import stl from "./ResultBox.module.css";
 import download from "../../../../assets/Download.svg";
 import trashcan from "../../../../assets/Trashcan.svg";
+import { useEffect } from "react";
 
-const ResultBox = () => {
+const ResultBox = (props) => {
+  useEffect(() => {}, [props.uploaded]);
+  console.log(props.uploaded);
+
   return (
     <div className={stl.resultbox}>
       <div className={stl.resultitems}>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
+        {props.uploaded.map((item) => (
+          <div className={stl.resultitem} key={Math.random()}>
+            <span className={stl.itemname}>{item.name}</span>
+            <span className={stl.itemsize}>
+              {(item.size / 1000).toFixed(0)} KB
+            </span>
+            <div className={stl.itemctas}>
+              <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+                <img
+                  src={trashcan}
+                  alt="Trashcan"
+                  className={stl.trashcanico}
+                ></img>
+              </button>
+              <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+                <img
+                  src={download}
+                  alt="Download"
+                  className={stl.downloadico}
+                ></img>
+              </button>
+            </div>
           </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
-        <div className={stl.resultitem}>
-          <span className={stl.itemname}>Doge.jpg</span>
-          <span className={stl.itemsize}>774 kb</span>
-          <div className={stl.itemctas}>
-            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
-              <img
-                src={trashcan}
-                alt="Trashcan"
-                className={stl.trashcanico}
-              ></img>
-            </button>
-            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
-              <img
-                src={download}
-                alt="Download"
-                className={stl.downloadico}
-              ></img>
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
       <div className={stl.ctabtns}>
         <button className={stl.download}>

@@ -73,3 +73,7 @@
 .filedrop {
   pointer-events: none;
 }
+
+.plusicon {
+  width: 1.5rem;
+}

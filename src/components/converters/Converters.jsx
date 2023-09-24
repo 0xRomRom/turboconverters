@@ -11,12 +11,6 @@ const Converters = () => {
     setIsDraggingOver(true);
   };
 
-  const handleDragLeave = () => {
-    setTimeout(() => {
-      setIsDraggingOver(false);
-    }, 100);
-  };
-
   return (
     <div className={stl.convertcontainer} onDragOver={handleDragOver}>
       <AdBlockLeft />

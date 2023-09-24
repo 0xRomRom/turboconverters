@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import stl from "./UploadBox.module.css";
 import logo from "../../../../assets/Fileplus.svg";
+import plus from "../../../../assets/Plus.svg";
 
 const UploadBox = (props) => {
   const handleClickDefault = (e) => {
@@ -9,26 +10,30 @@ const UploadBox = (props) => {
   };
 
   const handleDragLeave = () => {
-    setTimeout(() => {
-      props.isDragging(false);
-    }, 100);
+    props.isDragging(false);
   };
 
-  const onDrop = useCallback((acceptedFiles) => {
-    props.isDragging(false);
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader();
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      props.setUploaded((files) => [...files, ...acceptedFiles]);
 
-      reader.onabort = () => console.log("file reading was aborted");
-      reader.onerror = () => console.log("file reading has failed");
-      reader.onload = () => {
-        // Do whatever you want with the file contents
-        const binaryStr = reader.result;
-        console.log(binaryStr);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  }, []);
+      props.isDragging(false);
+
+      acceptedFiles.forEach((file) => {
+        const reader = new FileReader();
+
+        reader.onabort = () => console.log("file reading was aborted");
+        reader.onerror = () => console.log("file reading has failed");
+        reader.onload = () => {
+          // Do whatever you want with the file contents
+          const binaryStr = reader.result;
+          console.log(binaryStr);
+        };
+        reader.readAsArrayBuffer(file);
+      });
+    },
+    [props]
+  );
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
@@ -39,7 +44,10 @@ const UploadBox = (props) => {
           {...getRootProps()}
           onDragLeave={handleDragLeave}
         >
-          <span className={stl.filedrop}>Drop Files</span>
+          <span className={stl.filedrop}>
+            <img src={plus} alt="Plus Icon" className={stl.plusicon} /> Drop
+            Files
+          </span>
         </div>
       )}
 
