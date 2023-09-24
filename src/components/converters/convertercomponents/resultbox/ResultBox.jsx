@@ -1,11 +1,11 @@
 import stl from "./ResultBox.module.css";
 import download from "../../../../assets/Download.svg";
 import trashcan from "../../../../assets/Trashcan.svg";
-import { useEffect } from "react";
 
 const ResultBox = (props) => {
-  useEffect(() => {}, [props.uploaded]);
-  console.log(props.uploaded);
+  const handleClearResults = () => {
+    props.setUploaded([]);
+  };
 
   return (
     <div className={stl.resultbox}>
@@ -36,7 +36,7 @@ const ResultBox = (props) => {
         ))}
       </div>
       <div className={stl.ctabtns}>
-        <button className={stl.download}>
+        <button className={stl.download} onClick={handleClearResults}>
           <img src={trashcan} alt="Trashcan" className={stl.trashcanico}></img>
           Clear All
         </button>

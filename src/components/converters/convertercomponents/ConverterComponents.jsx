@@ -15,7 +15,7 @@ const ConverterComponents = (props) => {
         isDragging={props.isDragging}
         setUploaded={setUploaded}
       />
-      <ResultBox uploaded={uploaded} />
+      <ResultBox uploaded={uploaded} setUploaded={setUploaded} />
     </div>
   );
 };
