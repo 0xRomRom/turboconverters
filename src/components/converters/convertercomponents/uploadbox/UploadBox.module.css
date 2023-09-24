@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .uploadbtn {
   display: flex;
   justify-content: center;
@@ -39,4 +43,19 @@
   top: 1rem;
   color: white;
   user-select: none;
+}
+
+.largedropbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.719);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
 }
