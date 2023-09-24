@@ -3,11 +3,11 @@ import Configuration from "./configuration/Configuration";
 import UploadBox from "./uploadbox/UploadBox";
 import ResultBox from "./resultbox/ResultBox";
 
-const ConverterComponents = () => {
+const ConverterComponents = (props) => {
   return (
     <div className={stl.converterbox}>
       <Configuration />
-      <UploadBox />
+      <UploadBox dragging={props.dragging} isDragging={props.isDragging} />
       <ResultBox />
     </div>
   );

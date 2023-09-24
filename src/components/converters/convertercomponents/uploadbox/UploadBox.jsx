@@ -1,27 +1,21 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-
 import stl from "./UploadBox.module.css";
 import logo from "../../../../assets/Fileplus.svg";
 
-const UploadBox = () => {
-  const [isDraggingOver, setIsDraggingOver] = useState(false);
-
+const UploadBox = (props) => {
   const handleClickDefault = (e) => {
     e.preventDefault();
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault(); // Prevent the default behavior of blocking file drops.
-    setIsDraggingOver(true);
-  };
-
   const handleDragLeave = () => {
-    setIsDraggingOver(false);
+    setTimeout(() => {
+      props.isDragging(false);
+    }, 100);
   };
 
   const onDrop = useCallback((acceptedFiles) => {
-    setIsDraggingOver(false);
+    props.isDragging(false);
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 
@@ -39,19 +33,13 @@ const UploadBox = () => {
 
   return (
     <>
-      {isDraggingOver && (
+      {props.dragging && (
         <div className={stl.largedropbox} {...getRootProps()}>
           <span>Drop Files</span>
         </div>
       )}
 
-      <div
-        className={stl.uploadbox}
-        {...getRootProps()}
-        onClick={handleClickDefault}
-        onDragOver={handleDragOver}
-        // onDragLeave={handleDragLeave}
-      >
+      <div className={stl.uploadbox} onClick={handleClickDefault}>
         <button className={stl.uploadbtn} {...getRootProps()}>
           <img src={logo} alt="Plus logo" className={stl.plus} /> Choose Files
         </button>
