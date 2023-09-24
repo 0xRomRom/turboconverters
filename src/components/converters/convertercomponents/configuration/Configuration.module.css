@@ -64,3 +64,10 @@
   color: rgb(235, 234, 234);
   margin: 0rem 1rem;
 }
+
+.dropdown {
+  position: relative;
+  width: 0.75rem;
+  color: rgb(197, 194, 194);
+  margin-bottom: 0.15rem;
+}

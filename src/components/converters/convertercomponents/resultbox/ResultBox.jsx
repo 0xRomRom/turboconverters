@@ -10,21 +10,152 @@ const ResultBox = () => {
           <span className={stl.itemname}>Doge.jpg</span>
           <span className={stl.itemsize}>774 kb</span>
           <div className={stl.itemctas}>
-            <button className={stl.ctabtn}>
-              <img src={trashcan} alt="Trashcan" className={stl.trashcan}></img>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
             </button>
-            <button className={stl.ctabtn}>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
               <img
                 src={download}
-                hgfhalt="Download"
-                className={stl.download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
+              ></img>
+            </button>
+          </div>
+        </div>
+        <div className={stl.resultitem}>
+          <span className={stl.itemname}>Doge.jpg</span>
+          <span className={stl.itemsize}>774 kb</span>
+          <div className={stl.itemctas}>
+            <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <img
+                src={trashcan}
+                alt="Trashcan"
+                className={stl.trashcanico}
+              ></img>
+            </button>
+            <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <img
+                src={download}
+                alt="Download"
+                className={stl.downloadico}
               ></img>
             </button>
           </div>
         </div>
       </div>
       <div className={stl.ctabtns}>
-        <button className={stl.cta}>Download All</button>
+        <button className={stl.download}>
+          <img src={trashcan} alt="Trashcan" className={stl.trashcanico}></img>
+          Clear All
+        </button>
+        <button className={stl.download}>
+          <img src={download} alt="Download" className={stl.downloadico}></img>{" "}
+          Download All
+        </button>
       </div>
     </div>
   );
