@@ -1,0 +1,85 @@
+.resultbox {
+  position: relative;
+  width: 100%;
+  max-height: 15rem;
+  background-color: rgb(65, 105, 225);
+  margin-top: 3rem;
+  border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ctabtns {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 2rem;
+  gap: 0.5rem;
+  background-color: yellow;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: whiote;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.uploadbtn:active {
+  outline: 2px solid rgb(0, 255, 242);
+}
+
+.resultitems {
+  width: 100%;
+  padding-top: 0.25rem;
+}
+
+.resultitem {
+  width: 100%;
+  height: 2.5rem;
+  width: 99%;
+  left: 0.5%;
+  position: relative;
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemname {
+  color: white;
+}
+
+.itemsize {
+  color: white;
+}
+
+.itemctas {
+  width: 4rem;
+  height: 100%;
+  background-color: red;
+  display: flex;
+}
+
+.download {
+  width: 100%;
+  height: 100%;
+}
+
+.trashcan {
+  width: 100%;
+  height: 100%;
+}
