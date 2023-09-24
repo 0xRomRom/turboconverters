@@ -14,7 +14,11 @@ const ResultBox = () => {
               <img src={trashcan} alt="Trashcan" className={stl.trashcan}></img>
             </button>
             <button className={stl.ctabtn}>
-              <img src={download} alt="Download" className={stl.download}></img>
+              <img
+                src={download}
+                hgfhalt="Download"
+                className={stl.download}
+              ></img>
             </button>
           </div>
         </div>
