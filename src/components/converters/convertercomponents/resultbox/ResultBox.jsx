@@ -4,7 +4,7 @@ import trashcan from "../../../../assets/Trashcan.svg";
 import { useEffect } from "react";
 
 const ResultBox = (props) => {
-  useEffect(() => {}, []);
+  useEffect(() => {}, [props.uploaded]);
 
   const handleClearResults = () => {
     props.setUploaded([props.uploaded]);
@@ -53,7 +53,8 @@ const ResultBox = (props) => {
           const url = URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = url;
-          a.download = upload.file.name.split(".")[0];
+          a.download =
+            upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
           a.click();
           URL.revokeObjectURL(url);
         }, props.fileType);
@@ -102,7 +103,7 @@ const ResultBox = (props) => {
         </button>
         <button className={stl.download} onClick={handleDownloadAll}>
           <img src={download} alt="Download" className={stl.downloadico}></img>{" "}
-          Download All
+          Download {props.uploaded?.length > 1 ? "All" : ""}
         </button>
       </div>
     </div>
