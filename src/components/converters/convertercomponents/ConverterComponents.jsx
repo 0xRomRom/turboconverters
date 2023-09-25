@@ -14,7 +14,11 @@ const ConverterComponents = (props) => {
 
   return (
     <div className={stl.converterbox}>
-      <Configuration setFileType={updateFileType} fileType={fileType} />
+      <Configuration
+        setFileType={updateFileType}
+        fileType={fileType}
+        setUploaded={setUploaded}
+      />
       <UploadBox
         dragging={props.dragging}
         isDragging={props.isDragging}

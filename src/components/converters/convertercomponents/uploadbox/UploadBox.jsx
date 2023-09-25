@@ -23,8 +23,6 @@ const UploadBox = (props) => {
           randomNum: Math.random(),
           newname: newName,
         };
-        console.log(file.name.split("."));
-        console.log(file.name);
         newFiles.push(newFile);
       });
 
