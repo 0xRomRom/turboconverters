@@ -3,6 +3,8 @@
   width: 100%;
   height: 10rem;
   background-color: rgb(65, 105, 225);
+  background: linear-gradient(90deg, rgb(65, 105, 225), rgb(0, 64, 255));
+  background: linear-gradient(90deg, rgb(75, 113, 226), rgb(66, 21, 230));
   margin-top: 3rem;
   border-radius: 0.2rem;
   display: flex;
@@ -64,5 +66,5 @@
 }
 
 option {
-  background-color: rgb(65, 105, 225);
+  background-color: rgb(66, 21, 230);
 }

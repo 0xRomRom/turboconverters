@@ -13,6 +13,7 @@
   width: calc(100% - 20px);
   height: 100%;
   background-color: rgb(65, 105, 225);
+  background: linear-gradient(90deg, rgb(75, 113, 226), rgb(66, 21, 230));
   border-radius: 0.3rem;
   display: flex;
   justify-content: space-between;
