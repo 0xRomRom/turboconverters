@@ -15,8 +15,10 @@ const Configuration = (props) => {
         <select className={stl.dropselect} onChange={handleTypeSwitch}>
           <option value="image/png">PNG</option>
           <option value="image/jpeg">JPEG</option>
-          <option value="image/bmp">BMP</option>
           <option value="image/webp">WEBP</option>
+          <option value="image/bmp">BMP</option>
+          <option value="image/tiff">TIFF</option>
+          <option value="image/gif">GIF</option>
         </select>
       </div>
     </div>
