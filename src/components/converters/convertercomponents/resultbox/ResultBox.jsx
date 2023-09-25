@@ -1,11 +1,16 @@
 import stl from "./ResultBox.module.css";
 import download from "../../../../assets/Download.svg";
 import trashcan from "../../../../assets/Trashcan.svg";
+import { useEffect } from "react";
 
 const ResultBox = (props) => {
+  useEffect(() => {}, []);
+
   const handleClearResults = () => {
-    props.setUploaded([]);
+    props.setUploaded([props.uploaded]);
   };
+
+  const handleDelete = () => {};
 
   const handleDownload = (e) => {
     const target =
@@ -33,7 +38,6 @@ const ResultBox = (props) => {
 
         img.src = URL.createObjectURL(upload);
       }
-      console.log(upload);
     });
   };
 
