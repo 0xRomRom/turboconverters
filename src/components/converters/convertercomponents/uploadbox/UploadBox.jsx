@@ -1,3 +1,4 @@
+import { compress, compressAccurately } from "image-conversion";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import stl from "./UploadBox.module.css";
@@ -13,6 +14,28 @@ const UploadBox = (props) => {
     props.isDragging(false);
   };
 
+  const handleImageConversion = (input) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    console.log(input.name.split(".")[0]);
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = input.name.split(".")[0];
+        a.click();
+        URL.revokeObjectURL(url);
+      }, "image/webp");
+    };
+
+    img.src = URL.createObjectURL(input);
+  };
+
   const onDrop = useCallback(
     (acceptedFiles) => {
       props.setUploaded((files) => [...files, ...acceptedFiles]);
@@ -21,6 +44,7 @@ const UploadBox = (props) => {
 
       console.log(acceptedFiles);
       acceptedFiles.forEach((file) => {
+        console.log(file);
         const reader = new FileReader();
 
         reader.onabort = () => console.log("file reading was aborted");
@@ -29,6 +53,7 @@ const UploadBox = (props) => {
           // Do whatever you want with the file contents
           const binaryStr = event.target.result;
           console.log(binaryStr);
+          handleImageConversion(file);
         };
         reader.readAsArrayBuffer(file);
       });
