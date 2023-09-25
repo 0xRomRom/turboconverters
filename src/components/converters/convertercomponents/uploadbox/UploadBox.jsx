@@ -30,7 +30,7 @@ const UploadBox = (props) => {
         a.download = input.name.split(".")[0];
         a.click();
         URL.revokeObjectURL(url);
-      }, "image/webp");
+      }, props.fileType);
     };
 
     img.src = URL.createObjectURL(input);
@@ -51,8 +51,8 @@ const UploadBox = (props) => {
         reader.onload = (event) => {
           // Do whatever you want with the file contents
           const binaryStr = event.target.result;
-          console.log(binaryStr);
-          handleImageConversion(file);
+          // console.log(binaryStr);
+          // handleImageConversion(file);
         };
         reader.readAsArrayBuffer(file);
       });

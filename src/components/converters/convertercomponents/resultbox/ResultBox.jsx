@@ -7,6 +7,36 @@ const ResultBox = (props) => {
     props.setUploaded([]);
   };
 
+  const handleDownload = (e) => {
+    const target =
+      e.target.parentNode.parentNode.parentNode.firstChild.textContent;
+
+    props.uploaded.forEach((upload) => {
+      if (upload.path === target) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        console.log(upload.name.split(".")[0]);
+        img.onload = () => {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0, img.width, img.height);
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = upload.name.split(".")[0];
+            a.click();
+            URL.revokeObjectURL(url);
+          }, props.fileType);
+        };
+
+        img.src = URL.createObjectURL(upload);
+      }
+      console.log(upload);
+    });
+  };
+
   return (
     <div className={stl.resultbox}>
       <div className={stl.resultitems}>
@@ -24,7 +54,10 @@ const ResultBox = (props) => {
                   className={stl.trashcanico}
                 ></img>
               </button>
-              <button className={`${stl.ctabtn} ${stl.dlbtn}`}>
+              <button
+                className={`${stl.ctabtn} ${stl.dlbtn}`}
+                onClick={handleDownload}
+              >
                 <img
                   src={download}
                   alt="Download"
@@ -40,7 +73,7 @@ const ResultBox = (props) => {
           <img src={trashcan} alt="Trashcan" className={stl.trashcanico}></img>
           Clear All
         </button>
-        <button className={stl.download}>
+        <button className={stl.download} onClick={handleDownload}>
           <img src={download} alt="Download" className={stl.downloadico}></img>{" "}
           Download All
         </button>
