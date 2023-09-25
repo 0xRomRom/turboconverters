@@ -4,6 +4,7 @@ import { useDropzone } from "react-dropzone";
 import stl from "./UploadBox.module.css";
 import logo from "../../../../assets/Fileplus.svg";
 import plus from "../../../../assets/Plus.svg";
+import { upload } from "@testing-library/user-event/dist/upload";
 
 const UploadBox = (props) => {
   const handleClickDefault = (e) => {
@@ -18,7 +19,6 @@ const UploadBox = (props) => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const img = new Image();
-    console.log(input.name.split(".")[0]);
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
@@ -38,11 +38,18 @@ const UploadBox = (props) => {
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      props.setUploaded((files) => [...files, ...acceptedFiles]);
+      let newFiles = [];
+      acceptedFiles.forEach((file) => {
+        const newFile = {
+          file,
+          randomNum: Math.random(),
+        };
+        newFiles.push(newFile);
+      });
 
+      props.setUploaded((files) => [...files, ...newFiles]);
       props.isDragging(false);
 
-      console.log(acceptedFiles);
       acceptedFiles.forEach((file) => {
         const reader = new FileReader();
 

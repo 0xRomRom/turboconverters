@@ -13,15 +13,14 @@ const ResultBox = (props) => {
   const handleDelete = () => {};
 
   const handleDownload = (e) => {
-    const target =
-      e.target.parentNode.parentNode.parentNode.firstChild.textContent;
+    const target = e.target.parentNode.dataset.upload;
 
     props.uploaded.forEach((upload) => {
-      if (upload.path === target) {
+      if (+upload.randomNum === +target) {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        console.log(upload.name.split(".")[0]);
+        console.log(upload.file.name.split(".")[0]);
         img.onload = () => {
           canvas.width = img.width;
           canvas.height = img.height;
@@ -30,13 +29,13 @@ const ResultBox = (props) => {
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = upload.name.split(".")[0];
+            a.download = upload.file.name.split(".")[0];
             a.click();
             URL.revokeObjectURL(url);
           }, props.fileType);
         };
 
-        img.src = URL.createObjectURL(upload);
+        img.src = URL.createObjectURL(upload.file);
       }
     });
   };
@@ -46,9 +45,9 @@ const ResultBox = (props) => {
       <div className={stl.resultitems}>
         {props.uploaded.map((item) => (
           <div className={stl.resultitem} key={Math.random()}>
-            <span className={stl.itemname}>{item.name}</span>
+            <span className={stl.itemname}>{item.file.name}</span>
             <span className={stl.itemsize}>
-              {(item.size / 1000).toFixed(0)} KB
+              {(item.file.size / 1000).toFixed(0)} KB
             </span>
             <div className={stl.itemctas}>
               <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
@@ -61,6 +60,7 @@ const ResultBox = (props) => {
               <button
                 className={`${stl.ctabtn} ${stl.dlbtn}`}
                 onClick={handleDownload}
+                data-upload={item.randomNum}
               >
                 <img
                   src={download}
