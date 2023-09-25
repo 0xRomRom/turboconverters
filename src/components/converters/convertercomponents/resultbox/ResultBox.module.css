@@ -104,3 +104,9 @@
 .trashbtn {
   background-color: red;
 }
+
+.arrowright {
+  position: absolute;
+  left: 12rem;
+  width: 2rem;
+}

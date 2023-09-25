@@ -1,6 +1,7 @@
 import stl from "./ResultBox.module.css";
 import download from "../../../../assets/Download.svg";
 import trashcan from "../../../../assets/Trashcan.svg";
+import arrowright from "../../../../assets/Arrowright.svg";
 import { useEffect } from "react";
 
 const ResultBox = (props) => {
@@ -15,7 +16,6 @@ const ResultBox = (props) => {
     const filteredItems = props.uploaded.filter(
       (item) => item.randomNum !== target
     );
-    console.log(filteredItems);
     props.setUploaded(filteredItems);
   };
 
@@ -31,15 +31,19 @@ const ResultBox = (props) => {
           canvas.width = img.width;
           canvas.height = img.height;
           ctx.drawImage(img, 0, 0, img.width, img.height);
-          canvas.toBlob((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download =
-              upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
-            a.click();
-            URL.revokeObjectURL(url);
-          }, props.fileType);
+          canvas.toBlob(
+            (blob) => {
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download =
+                upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
+              a.click();
+              URL.revokeObjectURL(url);
+            },
+            props.fileType,
+            0.8
+          );
         };
 
         img.src = URL.createObjectURL(upload.file);
@@ -56,15 +60,19 @@ const ResultBox = (props) => {
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, img.width, img.height);
-        canvas.toBlob((blob) => {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download =
-            upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
-          a.click();
-          URL.revokeObjectURL(url);
-        }, props.fileType);
+        canvas.toBlob(
+          (blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download =
+              upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
+            a.click();
+            URL.revokeObjectURL(url);
+          },
+          props.fileType,
+          0.8
+        );
       };
 
       img.src = URL.createObjectURL(upload.file);
@@ -76,10 +84,13 @@ const ResultBox = (props) => {
       <div className={stl.resultitems}>
         {props.uploaded.map((item) => (
           <div className={stl.resultitem} key={Math.random()}>
+            <span className={stl.itemsize}>{item.file.name}</span>
+            <img
+              src={arrowright}
+              alt="Arrow right"
+              className={stl.arrowright}
+            />
             <span className={stl.itemname}>{item.newname}</span>
-            <span className={stl.itemsize}>
-              {(item.file.size / 1000).toFixed(0)} KB
-            </span>
             <div className={stl.itemctas}>
               <button
                 className={`${stl.ctabtn} ${stl.trashbtn}`}
