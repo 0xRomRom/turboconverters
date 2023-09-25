@@ -8,9 +8,13 @@ const ConverterComponents = (props) => {
   const [uploaded, setUploaded] = useState([]);
   const [fileType, setFileType] = useState("image/png");
 
+  const updateFileType = (newType) => {
+    setFileType(newType);
+  };
+
   return (
     <div className={stl.converterbox}>
-      <Configuration setFileType={setFileType} />
+      <Configuration setFileType={updateFileType} fileType={fileType} />
       <UploadBox
         dragging={props.dragging}
         isDragging={props.isDragging}

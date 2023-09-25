@@ -1,9 +1,8 @@
 import stl from "./Configuration.module.css";
-import dropdown from "../../../../assets/Dropdownarrow.svg";
 
 const Configuration = (props) => {
-  const handleTypeSwitch = () => {
-    props.setFileType(/* Insert logic*/);
+  const handleTypeSwitch = (e) => {
+    props.setFileType(e.target.value);
   };
 
   return (
@@ -12,10 +11,12 @@ const Configuration = (props) => {
       <div className={stl.inputs}>
         <span className={stl.convert}>Convert</span>
         <span className={stl.to}>To</span>
-        <span className={stl.input1}>
-          PNG{" "}
-          <img src={dropdown} alt="Dropdown arrow" className={stl.dropdown} />
-        </span>
+        <select className={stl.dropselect} onChange={handleTypeSwitch}>
+          <option value="image/png">PNG</option>
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/bmp">BMP</option>
+          <option value="image/webp">WEBP</option>
+        </select>
       </div>
     </div>
   );

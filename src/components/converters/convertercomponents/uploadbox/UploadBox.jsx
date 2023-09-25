@@ -1,10 +1,8 @@
-import { compress, compressAccurately } from "image-conversion";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import stl from "./UploadBox.module.css";
 import logo from "../../../../assets/Fileplus.svg";
 import plus from "../../../../assets/Plus.svg";
-import { upload } from "@testing-library/user-event/dist/upload";
 
 const UploadBox = (props) => {
   const handleClickDefault = (e) => {
