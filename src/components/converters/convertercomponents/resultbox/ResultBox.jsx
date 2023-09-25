@@ -10,7 +10,14 @@ const ResultBox = (props) => {
     props.setUploaded([]);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = (e) => {
+    const target = +e.target.parentNode.dataset.upload;
+    const filteredItems = props.uploaded.filter(
+      (item) => item.randomNum !== target
+    );
+    console.log(filteredItems);
+    props.setUploaded(filteredItems);
+  };
 
   const handleDownload = (e) => {
     const target = e.target.parentNode.dataset.upload;
@@ -74,7 +81,11 @@ const ResultBox = (props) => {
               {(item.file.size / 1000).toFixed(0)} KB
             </span>
             <div className={stl.itemctas}>
-              <button className={`${stl.ctabtn} ${stl.trashbtn}`}>
+              <button
+                className={`${stl.ctabtn} ${stl.trashbtn}`}
+                onClick={handleDelete}
+                data-upload={item.randomNum}
+              >
                 <img
                   src={trashcan}
                   alt="Trashcan"

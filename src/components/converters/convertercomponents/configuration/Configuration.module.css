@@ -62,3 +62,7 @@
   color: rgb(197, 194, 194);
   margin-bottom: 0.15rem;
 }
+
+option {
+  background-color: rgb(65, 105, 225);
+}
