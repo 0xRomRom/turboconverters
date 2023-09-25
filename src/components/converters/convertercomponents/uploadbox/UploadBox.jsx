@@ -17,10 +17,14 @@ const UploadBox = (props) => {
     (acceptedFiles) => {
       let newFiles = [];
       acceptedFiles.forEach((file) => {
+        const newName = file.name.split(".")[0] + "." + props.fileType.slice(6);
         const newFile = {
           file,
           randomNum: Math.random(),
+          newname: newName,
         };
+        console.log(file.name.split("."));
+        console.log(file.name);
         newFiles.push(newFile);
       });
 

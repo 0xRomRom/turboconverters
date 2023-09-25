@@ -28,7 +28,8 @@ const ResultBox = (props) => {
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = upload.file.name.split(".")[0];
+            a.download =
+              upload.file.name.split(".")[0] + "." + props.fileType.slice(6);
             a.click();
             URL.revokeObjectURL(url);
           }, props.fileType);
@@ -67,7 +68,7 @@ const ResultBox = (props) => {
       <div className={stl.resultitems}>
         {props.uploaded.map((item) => (
           <div className={stl.resultitem} key={Math.random()}>
-            <span className={stl.itemname}>{item.file.name}</span>
+            <span className={stl.itemname}>{item.newname}</span>
             <span className={stl.itemsize}>
               {(item.file.size / 1000).toFixed(0)} KB
             </span>
