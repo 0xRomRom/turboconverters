@@ -26,11 +26,13 @@ const ConverterComponents = (props) => {
         uploaded={uploaded}
         fileType={fileType}
       />
-      <ResultBox
-        uploaded={uploaded}
-        setUploaded={setUploaded}
-        fileType={fileType}
-      />
+      {uploaded.length > 0 && (
+        <ResultBox
+          uploaded={uploaded}
+          setUploaded={setUploaded}
+          fileType={fileType}
+        />
+      )}
     </div>
   );
 };

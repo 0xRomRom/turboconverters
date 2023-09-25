@@ -7,7 +7,7 @@ const ResultBox = (props) => {
   useEffect(() => {}, [props.uploaded]);
 
   const handleClearResults = () => {
-    props.setUploaded([props.uploaded]);
+    props.setUploaded([]);
   };
 
   const handleDelete = () => {};
