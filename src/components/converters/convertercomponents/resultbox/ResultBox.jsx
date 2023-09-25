@@ -20,7 +20,6 @@ const ResultBox = (props) => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        console.log(upload.file.name.split(".")[0]);
         img.onload = () => {
           canvas.width = img.width;
           canvas.height = img.height;
@@ -37,6 +36,29 @@ const ResultBox = (props) => {
 
         img.src = URL.createObjectURL(upload.file);
       }
+    });
+  };
+
+  const handleDownloadAll = () => {
+    props.uploaded.forEach((upload) => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      const img = new Image();
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = upload.file.name.split(".")[0];
+          a.click();
+          URL.revokeObjectURL(url);
+        }, props.fileType);
+      };
+
+      img.src = URL.createObjectURL(upload.file);
     });
   };
 
@@ -77,7 +99,7 @@ const ResultBox = (props) => {
           <img src={trashcan} alt="Trashcan" className={stl.trashcanico}></img>
           Clear All
         </button>
-        <button className={stl.download} onClick={handleDownload}>
+        <button className={stl.download} onClick={handleDownloadAll}>
           <img src={download} alt="Download" className={stl.downloadico}></img>{" "}
           Download All
         </button>
