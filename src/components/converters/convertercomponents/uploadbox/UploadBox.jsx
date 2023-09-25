@@ -44,7 +44,6 @@ const UploadBox = (props) => {
 
       console.log(acceptedFiles);
       acceptedFiles.forEach((file) => {
-        console.log(file);
         const reader = new FileReader();
 
         reader.onabort = () => console.log("file reading was aborted");

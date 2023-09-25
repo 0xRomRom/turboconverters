@@ -6,10 +6,11 @@ import { useState } from "react";
 
 const ConverterComponents = (props) => {
   const [uploaded, setUploaded] = useState([]);
+  const [fileType, setFileType] = useState("image/webp");
 
   return (
     <div className={stl.converterbox}>
-      <Configuration />
+      <Configuration setFileType={setFileType} />
       <UploadBox
         dragging={props.dragging}
         isDragging={props.isDragging}

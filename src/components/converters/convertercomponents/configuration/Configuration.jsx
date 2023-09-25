@@ -1,7 +1,11 @@
 import stl from "./Configuration.module.css";
 import dropdown from "../../../../assets/Dropdownarrow.svg";
 
-const Configuration = () => {
+const Configuration = (props) => {
+  const handleTypeSwitch = () => {
+    props.setFileType(/* Insert logic*/);
+  };
+
   return (
     <div className={stl.configurebox}>
       <span className={stl.type}>Image</span>
