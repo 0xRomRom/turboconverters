@@ -6,6 +6,7 @@ const Footer = () => {
       <span>Privacy</span>
       <span>Terms</span>
       <span>Donate</span>
+      <span>Remove Ads</span>
     </div>
   );
 };

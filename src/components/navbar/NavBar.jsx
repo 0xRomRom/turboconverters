@@ -13,8 +13,8 @@ const NavBar = () => {
           <span className={stl.linkspan}>Document</span>
         </div>
         <div className={stl.loginbox}>
-          <button className={stl.ctabtn}>Login</button>
           <button className={stl.ctabtn}>Sign Up</button>
+          <button className={`${stl.ctabtn} ${stl.loginbtn}`}>Login</button>
         </div>
       </div>
     </div>

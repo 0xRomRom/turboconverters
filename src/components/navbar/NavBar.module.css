@@ -80,3 +80,15 @@
   background-color: black;
   color: yellow;
 }
+
+.loginbtn {
+  background-color: transparent;
+  border: 2px solid yellow;
+  color: white;
+}
+
+.loginbtn:hover {
+  background-color: yellow;
+  border: 2px solid yellow;
+  color: black;
+}
