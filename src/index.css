@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(8, 11, 22);
   font-family: "Open Sans";
+  height: 100vh;
 }
 
 * {

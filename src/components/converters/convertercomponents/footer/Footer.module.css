@@ -14,12 +14,13 @@
   color: white;
 }
 
-span {
+.footspan {
   cursor: pointer;
   color: rgb(207, 207, 207);
   transition: all 0.2s ease-in-out;
+  font-size: 14px;
 }
 
-span:hover {
+.footspan:hover {
   color: white;
 }
