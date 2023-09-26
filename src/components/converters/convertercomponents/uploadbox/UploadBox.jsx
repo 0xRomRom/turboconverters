@@ -5,6 +5,8 @@ import logo from "../../../../assets/Fileplus.svg";
 import plus from "../../../../assets/Plus.svg";
 
 const UploadBox = (props) => {
+  const filetypes = ["png", "jpg", "jpeg", "webp", "bmp", "tiff", "gif"];
+
   const handleClickDefault = (e) => {
     e.preventDefault();
   };
@@ -23,7 +25,12 @@ const UploadBox = (props) => {
           randomNum: Math.random(),
           newname: newName,
         };
-        newFiles.push(newFile);
+        console.log(newFile.file.name.split(".")[1]);
+        filetypes.map((type) => {
+          if (type === newFile.file.name.split(".")[1].toLowerCase()) {
+            newFiles.push(newFile);
+          }
+        });
       });
 
       props.setUploaded((files) => [...files, ...newFiles]);
@@ -31,7 +38,10 @@ const UploadBox = (props) => {
     },
     [props]
   );
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: { "image/": [] },
+  });
 
   return (
     <>
