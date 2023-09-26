@@ -2,6 +2,7 @@ import stl from "./ConverterComponents.module.css";
 import Configuration from "./configuration/Configuration";
 import UploadBox from "./uploadbox/UploadBox";
 import ResultBox from "./resultbox/ResultBox";
+import Footer from "./footer/Footer";
 import { useState } from "react";
 
 const ConverterComponents = (props) => {
@@ -33,6 +34,7 @@ const ConverterComponents = (props) => {
           fileType={fileType}
         />
       )}
+      <Footer />
     </div>
   );
 };
