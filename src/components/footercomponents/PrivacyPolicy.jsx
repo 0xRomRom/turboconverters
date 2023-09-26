@@ -2,12 +2,20 @@ import stl from "./PrivacyPolicy.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy = (props) => {
+  const handleClosePrivacy = () => {
+    props.closePrivacy((state) => !state);
+  };
+
   return (
     <div className={stl.wrapper}>
       <div className={stl.modal}>
         <div className={stl.closewrapper}>
-          <FontAwesomeIcon icon={faXmark} className={stl.close} />
+          <FontAwesomeIcon
+            icon={faXmark}
+            className={stl.close}
+            onClick={handleClosePrivacy}
+          />
         </div>
         <h2 className={stl.header}>
           <strong>Terms and Conditions</strong>
