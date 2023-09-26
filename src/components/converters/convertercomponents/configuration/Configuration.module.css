@@ -11,6 +11,10 @@
   flex-direction: column;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .type {
   color: rgb(211, 205, 205);
   position: relative;
@@ -45,6 +49,8 @@
   width: 7.4rem;
   border: 1px solid transparent;
   outline: none;
+  z-index: 200;
+  /* font-family: "JetBrains Mono", monospace; */
 }
 
 .dropselect:hover {
@@ -66,4 +72,14 @@
 
 option {
   background-color: rgb(66, 21, 230);
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.644);
+  left: 0;
+  top: 0;
+  z-index: 150;
 }

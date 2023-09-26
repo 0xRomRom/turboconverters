@@ -2,6 +2,7 @@ import stl from "./Configuration.module.css";
 
 const Configuration = (props) => {
   const handleTypeSwitch = (e) => {
+    console.log("handleTypeSwitch called");
     props.setFileType(e.target.value);
     props.setUploaded([]);
   };
