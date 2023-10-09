@@ -16,6 +16,7 @@
   height: 30rem;
   padding: 1.5rem;
   background-color: rgb(20, 10, 10);
+  border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -33,10 +34,11 @@
   transition: all 0.2s ease-in-out;
   border: 1px solid transparent;
   border-radius: 50%;
+  color: gray;
 }
 
 .close:hover {
-  transform: rotate(90deg);
+  color: white;
 }
 
 .header {
