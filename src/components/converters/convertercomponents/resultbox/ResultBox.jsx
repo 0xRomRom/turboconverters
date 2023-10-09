@@ -85,17 +85,23 @@ const ResultBox = (props) => {
         {props.uploaded.map((item) => (
           <div className={stl.resultitem} key={Math.random()}>
             <span className={stl.itemsize}>
-              {item.file.name.slice(0, 15) +
-                (item.file.name.length > 15 ? "..." : "")}
+              {item.file.name.slice(0, 10) +
+                (item.file.name.length > 10
+                  ? "..." + item.file.name.split(".")[1]
+                  : "")}
             </span>
+
             <img
               src={arrowright}
               alt="Arrow right"
               className={stl.arrowright}
             />
+
             <span className={stl.itemname}>
-              {item.newname.slice(0, 15) +
-                (item.file.name.length > 15 ? "..." : "")}
+              {item.newname.slice(0, 10) +
+                (item.file.name.length > 10
+                  ? "..." + item.newname.split(".")[1]
+                  : "")}
             </span>
             <div className={stl.itemctas}>
               <button
