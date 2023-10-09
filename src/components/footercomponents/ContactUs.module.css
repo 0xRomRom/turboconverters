@@ -1,0 +1,66 @@
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 40rem;
+  height: 30rem;
+  padding: 1.5rem;
+  background-color: rgb(20, 10, 10);
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.closewrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.3rem;
+}
+
+.close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: gray;
+}
+
+.close:hover {
+  color: white;
+}
+
+.header {
+  display: block;
+  position: relative;
+}
+
+a {
+  color: white;
+}
+
+.sitelogo {
+  width: 70%;
+  height: 10rem;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 0.4rem;
+}
+
+.aboutusTxt {
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
