@@ -24,3 +24,7 @@
 .footspan:hover {
   color: white;
 }
+
+span {
+  user-select: none;
+}

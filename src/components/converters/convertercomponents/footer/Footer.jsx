@@ -41,7 +41,7 @@ const Footer = () => {
       <span className={stl.footspan} onClick={handleOpenTerms}>
         Terms and Conditions
       </span>
-      <span className={stl.footspan}>Remove Ads</span>
+      {/* <span className={stl.footspan}>Remove Ads</span> */}
       {privacy && <PrivacyPolicy closePrivacy={openPrivacy} />}
       {terms && <Terms closeTerms={openTerms} />}
       {aboutUs && <AboutUs closeAboutUs={handleOpenAboutUs} />}
