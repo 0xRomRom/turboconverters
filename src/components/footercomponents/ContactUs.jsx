@@ -1,9 +1,25 @@
 import stl from "./ContactUs.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXmark,
+  faArrowDown,
+  faCopy,
+} from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/Emailbanner.png";
+import { useState } from "react";
 
 const ContactUs = (props) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("turboconverters@gmail.com");
+    setClicked(true);
+
+    setTimeout(() => {
+      setClicked(false);
+    }, 500);
+  };
+
   return (
     <div className={stl.wrapper}>
       <div className={stl.modal}>
@@ -16,17 +32,17 @@ const ContactUs = (props) => {
         </div>
         <img src={logo} className={stl.sitelogo} alt="Turbo Converters" />
         <p className={stl.aboutusTxt}>
-          We're a group of software developers aiming to improve the file
-          conversion experience.
-          <br />
-          <br />
-          Difficult to navigate user interfaces along with conversion limits
-          typically provide a bad user experience.
-          <br />
-          <br />
-          Turbo Converters provides an intuitive application to waste no further
-          time converting your files!
+          Reach out to us by email and we'll get back to you asap!
         </p>
+        <FontAwesomeIcon icon={faArrowDown} className={stl.arrow} />
+        <span className={stl.email}>
+          turboconverters@gmail.com{" "}
+          <FontAwesomeIcon
+            icon={faCopy}
+            className={`${stl.copy} ${clicked ? stl.copied : ""}`}
+            onClick={handleCopyEmail}
+          />
+        </span>
       </div>
     </div>
   );

@@ -64,3 +64,36 @@ a {
   margin: 0 auto;
   margin-top: 3rem;
 }
+
+.email {
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.arrow {
+  margin: 2rem 0;
+  font-size: 2rem;
+  color: gray;
+}
+
+.copy {
+  color: rgb(214, 211, 211);
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.copy:hover {
+  color: white;
+}
+
+.copied {
+  color: green;
+}
+
+.copied:hover {
+  color: green;
+}
